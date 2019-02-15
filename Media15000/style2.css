@@ -1,0 +1,59 @@
+body{
+	height:100%;
+	overflow:hidden;
+	margin:0px;
+}
+
+#background{
+	position:absolute;
+	top:0px;
+	left:0px;
+	min-height:100%;
+	min-width:100%;
+	width:100%;
+	height:auto;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+	z-index:1;
+}
+
+#backToHome{
+	position: absolute;
+	color:white;
+	top:175px;
+	font-size: 25px;
+	z-index: 2;
+}
+
+#x_result, #y_result{
+	position:absolute;
+	top: 100px;
+	color:white;
+	font-size:25px;
+	z-index:2;
+}
+
+#y_result{
+	top: 125px;
+}
+
+#music{
+	position:absolute;
+	width: 500px;
+	z-index:2;
+}
+
+#buttons{
+	position:absolute;
+	top: 45px;
+	z-index: 2;
+}
+
+#buttons > #room1, #room2, #room3{
+	color:white;
+	font-size:20px;
+	background-color: #4CAF50;
+	padding: 15px 32px;
+	text-align:center;
+}

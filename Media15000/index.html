@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+	<title>Day 1 Html</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="creator" lang="en" content="Howard Jiang" />
+		<meta name="subject" lang="en" content="ELECT A SUBJECT HEADING" />
+		<meta name="description" lang="en" content="WRITE A DESCRIPTION" />
+		<meta name="keywords" content="DEFINE KEYWORDS OR PHRASES, USE COMMAS TO SEPERATE" />
+
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="./scripts.js"></script>
+
+		<script>
+			window.onkeydown = function(e){
+				//alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
+				//if(e.keyCode == 70){}
+				if(String.fromCharCode(e.keyCode) == "F"){
+					window.open("index2.html");
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="playMusic('music')">
+		<div class="text">
+			<h1>Howard Jiang</h1>
+			<h2>Welcome to my html web page.</h2>
+			<h3>Junior year small brain computer science guy doing code because why not.</h3>
+			<div>Help, my french fries are getting cold in class and I cant eat them. Press F to pay respects.</div> 
+			<p>Or you can click this link: 
+				<a href="index2.html">I dont like pressing the F key</a>
+			</p>
+		</div>
+		
+		<audio id="music" src="sounds/backgroundMusic.mp3" controls></audio>
+		
+		<img id="gif" src="images/gifPicture.gif" />		
+	</body>
+</html>
