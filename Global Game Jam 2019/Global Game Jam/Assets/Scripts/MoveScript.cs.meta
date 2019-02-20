@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2d10444689638472abb519e0f29a166d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - uSprite: {fileID: 21300008, guid: 469c908a0763349e293fd9730b559755, type: 3}
+  - dSprite: {fileID: 21300000, guid: 469c908a0763349e293fd9730b559755, type: 3}
+  - lSprite: {fileID: 21300016, guid: 469c908a0763349e293fd9730b559755, type: 3}
+  - rSprite: {fileID: 21300026, guid: 469c908a0763349e293fd9730b559755, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
