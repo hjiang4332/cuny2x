@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<title>Horror game</title>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style2.css">
+		<script type="text/javascript" src="./scripts.js"></script>
+		<script>
+			document.onmousemove = readMouseMove;
+			window.onkeydown = function(e){
+				//alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
+				//if(e.keyCode == 70){}
+				if(String.fromCharCode(e.keyCode) == "F"){
+					window.open("index.html");
+				}
+			}
+		</script>
+		
+	</head>
+
+	<body onload="playMusic('music')">
+		<img id="background" src="images/game images/room1.gif" />
+		
+		<audio id = "music" src="sounds/backgroundMusic2.wav" controls></audio>
+		
+		<div id="buttons">
+			<button id="room1" onclick="changeRoom('background', 'room1', '.gif')">room1</button>
+			<button id="room2" onclick="changeRoom('background', 'room2', '.png')">room2</button>
+			<button id="room3" onclick="changeRoom('background', 'room3', '.png')">room3</button>
+		</div>
+		
+		<div id="x_result">x value: 0</div>
+		<div id="y_result">y value: 0</div>
+		
+		<a id = "backToHome" href="index.html">Go back</a>
+	</body>
+</html>

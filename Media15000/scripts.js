@@ -9,7 +9,17 @@ function pauseMusic(audio){
 
 function changeRoom(id, room, extension){
 	/*document.getElementById(id).style.backgroundImage = 'url(./'+room+extension;*/
-	document.getElementById(id).src="images/"+room+extension;
+	document.getElementById(id).src="images/game images/"+room+extension;
+}
+
+function changePicture(id, name, extension, textId){
+	document.getElementById(id).src="images/hw2 images/"+name+extension;
+	document.getElementById(textId).innerHTML="These images are 800px by 800px.";
+}
+
+function changePicture2(id, name, extension, textId){
+	document.getElementById(id).src="images/hw2 images/"+name+extension;
+	document.getElementById(textId).innerHTML="This is the blurred image";
 }
 
 function readMouseMove(e){
