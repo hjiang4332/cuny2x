@@ -12,14 +12,9 @@ function changeRoom(id, room, extension){
 	document.getElementById(id).src="images/game images/"+room+extension;
 }
 
-function changePicture(id, name, extension, textId){
-	document.getElementById(id).src="images/hw2 images/"+name+extension;
-	document.getElementById(textId).innerHTML="These images are 800px by 800px.";
-}
-
-function changePicture2(id, name, extension, textId){
-	document.getElementById(id).src="images/hw2 images/"+name+extension;
-	document.getElementById(textId).innerHTML="This is the blurred image";
+function changePicture(elementId, folderName, fileName, fileExtension, textId, newText){
+	document.getElementById(elementId).src=folderName+fileName+fileExtension;
+	document.getElementById(textId).innerHTML=newText;
 }
 
 function readMouseMove(e){

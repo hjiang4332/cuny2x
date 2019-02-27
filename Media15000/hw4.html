@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<title>Day 1 Html</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="creator" lang="en" content="Howard Jiang" />
+		<meta name="subject" lang="en" content="ELECT A SUBJECT HEADING" />
+		<meta name="description" lang="en" content="WRITE A DESCRIPTION" />
+		<meta name="keywords" content="DEFINE KEYWORDS OR PHRASES, USE COMMAS TO SEPERATE" />
+
+		<link rel="stylesheet" type="text/css" href="./style3.css">
+		<script type="text/javascript" src="./scripts.js"></script>
+
+		<script>
+			window.onkeydown = function(e){
+				//alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
+				//if(e.keyCode == 70){}
+				if(String.fromCharCode(e.keyCode) == "F"){
+					window.open("game.html");
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="playMusic('music')">
+		<ul class="navigationBar">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="game.html">Homework 1</a></li>
+
+			<li class="dropdown">
+				<a href="hw2.html" class="dropHover">Homework 2</a>
+				<div class="dropdownContent">
+					<a href="hw2s1">Pic 1 Small</a>
+					<a href="hw2m">Pic 1 Medium</a>
+					<a href="hw2l1">Pic 1 Large</a>
+					<a href="hw2s2">Pic 2 Small</a>
+					<a href="hw2m2">Pic 2 Medium</a>
+					<a href="hw2l2">Pic 2 Large</a>
+				</div>
+			</li>
+			
+			<li><a href="hw3.html">Homework 3</a></li>
+			<li><a href="hw4.html">Homework 4</a></li>
+			<li><a href="hw5.html">Homework 5</a></li>
+			<li><a href="hw6.html">Homework 6</a></li>
+			<li><a href="hw7.html">Homework 7</a></li>
+			<li><a href="hw8.html">Homework 8</a></li>
+			<li><a href="hw9.html">Homework 9</a></li>
+			<li><a href="hw10.html">Homework 10</a></li>
+		</ul>
+
+		<audio id="music" src="sounds/backgroundMusic.mp3" controls></audio>
+
+		<div class="text">
+			<h1>Howard Jiang Homework 4</h1>
+
+			<h2 id = "pictureText">This is the layerMask picture I made. Click to see the screenshot </h2>
+			<img id = "pic" src="images/hw4 images/kirby2.png" onclick="changePicture('pic', 'images/hw4 images/','screenshot1', '.png', 'pictureText', 'This is the screenshot')">
+			<img id = "pic2" src="images/hw4 images/pic2.png" onclick="changePicture('pic2','images/hw4 images/','screenshot2', '.png', 'pictureText', 'This is the screenshot')">
+			The source of my images were all found on google because that was the easiest way for me to find them. For the first picture, I wanted to make it extra cringe so I 
+				put kirby with a cool background. For the second blend photo, I saw on Lynda that putting the saturation blend makes the picture look like it was hand painted, 
+				so I used that as a way to make things seem more natural, as bob ross is the painter, I wanted the image I placed in the back to seem like he actually painted it.
+		</div>		
+	</body>
+</html>
