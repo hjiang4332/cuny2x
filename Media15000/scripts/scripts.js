@@ -9,7 +9,7 @@ function pauseMusic(audio){
 
 function changeRoom(id, room, extension){
 	/*document.getElementById(id).style.backgroundImage = 'url(./'+room+extension;*/
-	document.getElementById(id).src="images/game images/"+room+extension;
+	document.getElementById(id).src="../images/game images/"+room+extension;
 }
 
 function changePicture(elementId, folderName, fileName, fileExtension, textId, newText){

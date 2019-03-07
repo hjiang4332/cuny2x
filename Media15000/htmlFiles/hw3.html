@@ -8,15 +8,15 @@
 		<meta name="description" lang="en" content="WRITE A DESCRIPTION" />
 		<meta name="keywords" content="DEFINE KEYWORDS OR PHRASES, USE COMMAS TO SEPERATE" />
 
-		<link rel="stylesheet" type="text/css" href="./style3.css">
-		<script type="text/javascript" src="./scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/style3.css">
+		<script type="text/javascript" src="../scripts/scripts.js"></script>
 
 		<script>
 			window.onkeydown = function(e){
 				//alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
 				//if(e.keyCode == 70){}
 				if(String.fromCharCode(e.keyCode) == "F"){
-					window.open("game.html");
+					window.open("./game.html");
 				}
 			}
 		</script>
@@ -24,11 +24,11 @@
 
 	<body onload="playMusic('music')">
 		<ul class="navigationBar">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="game.html">Homework 1</a></li>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="./game.html">Homework 1</a></li>
 
 			<li class="dropdown">
-				<a href="hw2.html" class="dropHover">Homework 2</a>
+				<a href="./hw2.html" class="dropHover">Homework 2</a>
 				<div class="dropdownContent">
 					<a href="hw2s1">Pic 1 Small</a>
 					<a href="hw2m">Pic 1 Medium</a>
@@ -39,24 +39,24 @@
 				</div>
 			</li>
 			
-			<li><a href="hw3.html">Homework 3</a></li>
-			<li><a href="hw4.html">Homework 4</a></li>
-			<li><a href="hw5.html">Homework 5</a></li>
-			<li><a href="hw6.html">Homework 6</a></li>
-			<li><a href="hw7.html">Homework 7</a></li>
-			<li><a href="hw8.html">Homework 8</a></li>
-			<li><a href="hw9.html">Homework 9</a></li>
-			<li><a href="hw10.html">Homework 10</a></li>
+			<li><a href="./hw3.html">Homework 3</a></li>
+			<li><a href="./hw4.html">Homework 4</a></li>
+			<li><a href="./hw5.html">Homework 5</a></li>
+			<li><a href="./hw6.html">Homework 6</a></li>
+			<li><a href="./hw7.html">Homework 7</a></li>
+			<li><a href="./hw8.html">Homework 8</a></li>
+			<li><a href="./hw9.html">Homework 9</a></li>
+			<li><a href="./hw10.html">Homework 10</a></li>
 		</ul>
 
-		<audio id="music" src="sounds/backgroundMusic.mp3" controls></audio>
+		<audio id="music" src="../sounds/backgroundMusic.mp3" controls></audio>
 
 		<div class="text">
 			<h1>Howard Jiang Homework 3</h1>
 			<!-- <img id="gif" src="images/gifPicture.gif" /> -->
 
 			<h2 id = "pictureText">Original Image</h2>
-			<img id = 'pic' src="images/hw2 images/hw2large.png" onclick="changePicture('pic','images/hw2 images/', 'hw2largeblurred', '.png', 'pictureText', 'This is the blurred image')">
+			<img id = 'pic' src="../images/hw2 images/hw2large.png" onclick="changePicture('pic','../images/hw2 images/', 'hw2largeblurred', '.png', 'pictureText', 'This is the blurred image')">
 		</div>	
 		
 		<div>

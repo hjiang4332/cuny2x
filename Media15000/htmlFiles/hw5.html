@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<title>Day 1 Html</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="creator" lang="en" content="Howard Jiang" />
+		<meta name="subject" lang="en" content="ELECT A SUBJECT HEADING" />
+		<meta name="description" lang="en" content="WRITE A DESCRIPTION" />
+		<meta name="keywords" content="DEFINE KEYWORDS OR PHRASES, USE COMMAS TO SEPERATE" />
+
+		<link rel="stylesheet" type="text/css" href="../stylesheets/style3.css">
+		<script type="text/javascript" src="../scripts/scripts.js"></script>
+
+		<script>
+			window.onkeydown = function(e){
+				//alert(String.fromCharCode(e.keyCode)+" --> "+e.keyCode);
+				//if(e.keyCode == 70){}
+				if(String.fromCharCode(e.keyCode) == "F"){
+					window.open("./game.html");
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="playMusic('music')">
+		<ul class="navigationBar">
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="./game.html">Homework 1</a></li>
+
+			<li class="dropdown">
+				<a href="./hw2.html" class="dropHover">Homework 2</a>
+				<div class="dropdownContent">
+					<a href="hw2s1">Pic 1 Small</a>
+					<a href="hw2m">Pic 1 Medium</a>
+					<a href="hw2l1">Pic 1 Large</a>
+					<a href="hw2s2">Pic 2 Small</a>
+					<a href="hw2m2">Pic 2 Medium</a>
+					<a href="hw2l2">Pic 2 Large</a>
+				</div>
+			</li>
+			
+			<li><a href="./hw3.html">Homework 3</a></li>
+			<li><a href="./hw4.html">Homework 4</a></li>
+			<li><a href="./hw5.html">Homework 5</a></li>
+			<li><a href="./hw6.html">Homework 6</a></li>
+			<li><a href="./hw7.html">Homework 7</a></li>
+			<li><a href="./hw8.html">Homework 8</a></li>
+			<li><a href="./hw9.html">Homework 9</a></li>
+			<li><a href="./hw10.html">Homework 10</a></li>
+		</ul>
+
+		<audio id="music" src="../sounds/backgroundMusic.mp3" controls></audio>
+
+		<div class="text">
+			<h1>Howard Jiang Homework 5</h1>
+
+			<h2 id = "pictureText">This is the picture </h2>
+			<img id = "pic" src="../images/hw5 images/hw5.png">
+		</div>		
+	</body>
+</html>
