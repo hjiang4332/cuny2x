@@ -1,5 +1,6 @@
 To run the file, you must be on mac OS. 
 	Click Executable file, Resa.app, Contents, MacOS, then double click Resa.
+THIS PROJECT IS CREATED FROM SCRATCH FOR GLOBAL GAME JAM, THIS HAS NOTHING TO DO WITH ANY CLASS OBLIGATED RESPONSIBILILTIES.
 This is a global game jam project that was split up between 5 people. 
 	Kyra did sounds, Melanie did assets and visuals, while the rest of us did the code. 
 	Josh did animations (When the character moves, it plays a walking animation).
