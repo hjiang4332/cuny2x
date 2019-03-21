@@ -44,6 +44,17 @@ namespace teaching_project {
 				}
 			}
 
+			//Move-constructor. 
+			//Ex: Points2<Object> e = move(c);
+			//e takes c's values
+			Points2(Points2 &&rhs){
+				size_ = rhs.size_;
+				sequence_ = rhs.sequence_;
+
+				rhs.size_ = 0;	//deallocate rhs.
+				rhs.sequence_ = nullptr;
+			}
+
 			// Copy-assignment. If you have already written
 			// the copy-constructor and the move-constructor
 			// you can just use:
@@ -55,24 +66,13 @@ namespace teaching_project {
 
 			//Ex: Points2<Object> a = b;
 			//a is equal to b
-			Points2& operator=(const Points2 &rhs) 
+			Points2& operator=(const Points2 &rhs)
 			{
-				if(this != &rhs){
-					Points2 copy = rhs;	
+				if (this != &rhs) {
+					Points2 copy = rhs;
 					std::swap(*this, copy);
 				}
 				return *this;
-			}
-
-			//Move-constructor. 
-			//Ex: Points2<Object> e = move(c);
-			//e takes c's values
-			Points2(Points2 &&rhs){
-				size_ = rhs.size_;
-				sequence_ = rhs.sequence_;
-
-				rhs.size_ = 0;	//deallocate rhs.
-				rhs.sequence_ = nullptr;
 			}
 			
 
