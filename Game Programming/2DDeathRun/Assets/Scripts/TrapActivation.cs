@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TrapActivation : PlayerController
 {
@@ -139,10 +138,5 @@ public class TrapActivation : PlayerController
             trapCounter = 6;
             canActivateTrap = true;
         }
-        if (collision.CompareTag("House") && Input.GetKeyDown("up"))
-        {
-            SceneManager.LoadScene("End");
-        }
-
     }
 }

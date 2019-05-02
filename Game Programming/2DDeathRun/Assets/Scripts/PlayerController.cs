@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : PhysicsObject
@@ -131,5 +132,13 @@ public class PlayerController : PhysicsObject
         animator.SetBool("isDead", true);
         deathSound.Play(0);
         Invoke("Respawn2", delay);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("House") && Input.GetKeyDown("up"))
+        {
+            SceneManager.LoadScene("End");
+        }
     }
 }
