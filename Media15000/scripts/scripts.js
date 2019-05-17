@@ -24,6 +24,10 @@ function readMouseMove(e){
 	result_y.innerHTML = "y value:" + e.clientY;
 }
 
+function showVideo(){
+	
+}
+
 /*var map1 = [
 		{
 			"item": "coin",
