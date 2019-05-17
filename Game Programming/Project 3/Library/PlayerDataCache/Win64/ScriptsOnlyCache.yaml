@@ -5,15 +5,6 @@ ScriptsOnlyBuild:
     - BulletScript
     - PatrolAndChase
     - PlayerController
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
   sceneClasses:
     Assets/Scenes/BadEnd.unity:
     - Class: 1
@@ -95,13 +86,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 602}
     - Class: 114
-      Script: {instanceID: 9218}
+      Script: {instanceID: 9224}
     - Class: 114
-      Script: {instanceID: 9226}
+      Script: {instanceID: 9790}
     - Class: 114
-      Script: {instanceID: 9792}
+      Script: {instanceID: 9948}
     - Class: 114
-      Script: {instanceID: 9950}
+      Script: {instanceID: 12442}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -156,13 +147,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 602}
     - Class: 114
-      Script: {instanceID: 9226}
+      Script: {instanceID: 9224}
     - Class: 114
-      Script: {instanceID: 9792}
+      Script: {instanceID: 9790}
     - Class: 114
-      Script: {instanceID: 9860}
+      Script: {instanceID: 9858}
     - Class: 114
-      Script: {instanceID: 9950}
+      Script: {instanceID: 9948}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -424,6 +415,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements
+    className: CallbackExecutor
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.Advertisements.dll
+    namespaceName: UnityEngine.Advertisements.Editor
+    className: Placeholder
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
