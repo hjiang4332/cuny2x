@@ -17,6 +17,11 @@ function changePicture(elementId, folderName, fileName, fileExtension, textId, n
 	document.getElementById(textId).innerHTML=newText;
 }
 
+function changePictureNoText(elementId, folderName, fileName, fileExtension){
+	document.getElementById(elementId).src=folderName+fileName+fileExtension;
+	document.getElementById(textId).innerHTML=newText;
+}
+
 function readMouseMove(e){
 	var result_x = document.getElementById('x_result');
 	var result_y = document.getElementById('y_result');
@@ -24,8 +29,9 @@ function readMouseMove(e){
 	result_y.innerHTML = "y value:" + e.clientY;
 }
 
-function showVideo(){
-	
+function buttonPress(elementId, videoName){
+	document.getElementById(elementId).src = videoName;
+	document.getElementById(elementId).style.display = "inline";
 }
 
 /*var map1 = [

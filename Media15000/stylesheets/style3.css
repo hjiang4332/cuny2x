@@ -73,7 +73,7 @@ li a:hover{
     display: none;
 } 
 
-#pic{
+#pic, pic2{
 	position: relative;
 	padding: 100px, 50px;
 	width:100%;
@@ -82,11 +82,14 @@ li a:hover{
 	text-align: center;
 }
 
-#video{
-	position: relative;
-	width:100%;
-	height: 95vh;
-	margin:0px;
-	z-index: 1;
-	text-align: center;
+#x_result, #y_result{
+	position:absolute;
+	top: 100px;
+	color:black;
+	font-size:25px;
+	z-index:2;
+}
+
+#y_result{
+	top: 125px;
 }
