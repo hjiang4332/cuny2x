@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+	<title>Passenger Rush</title>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="scripts.js"></script>
+	</head>
+
+	<body>
+		<div id="leftSide">
+			<div id="board">
+				<h1>
+					Game Board
+				</h1>
+			</div>
+			<div id="rollNumber">This is where your rolls will show up: </div>
+			<button id="rollButton" onclick="rollDice(20, 'rollNumber')">Click/W to Roll D20</button>
+			<button id="rollButton" onclick="rollDice(6, 'rollNumber')">Click/S to Roll D6</button>
+			<!-- <div id= "hazards">Your hazards go on: </div>  -->
+			<ul id="hazards"></ul>
+		</div>
+		<div id="text">
+			<div id="rules">
+				<h1> Game Rules </h1> 
+				Core Mechanic: Move around the board, get rid of all your passengers while avoiding picking up other passengers through the use of dice and strategic maneuvering 
+				<ul>
+					<li>
+						Players choose which color train they want to play as
+					</li>
+					<li>
+						A random color coded map is generated, the board is then labeled with the same colors
+					</li>
+					<li>
+						We assign where passenger tokens are placed on the board, acting as waiting commuters
+					</li>
+					<li>
+						Players are given 15 passengers (3 Passenger tokens) that match their train color
+					</li>
+					<li>
+						Players roll a 6 sided die and move according to the number they get 
+					</li>
+					<li>
+						As players move around the board, there are two systems at play: If a player moves past a station but doesn’t stop, they must pick up all the tokens there. If they stop at a station and have passengers that match the color, you may drop of 5 of that color, but if there are passengers then you must pick them up.
+					</li>
+					<li>
+						If a player lands on a Train Affect Space, they roll a D20 and depending on the number they get they activate a certain affect. After the effect is triggered, the token that indicates which Train Affect Space is active will be moved based on the program we use to another Train Affect Space.
+					</li>
+				</ul>
+				
+				The rules of the game are as follows: <br />
+				<ul>
+					<li>
+						Passengers may only be dropped off at stops that match their colors. 
+					</li>
+					<li>
+						When a train lands on a space, they may drop off 5 of the appropriate colored passengers, but they must pick up all passengers that are on the stop.
+					</li>
+					<li>
+						A player may not travel backwards; If a player wishes to do so they must find an alternate route to do so.
+					</li>
+					<li>
+						To activate a Train Affect Space, you must land on it as the final space of your roll.
+					</li>
+				</ul>
+				<button id = "button1" onclick="display('rules','rolls')";>Click/Press D to display d20 effects</button>
+			</div>
+
+			<div id="rolls">
+				<h1>Dice Outcomes</h1>
+				<h4>In the case that rolls are negative, a player is not able to move and shall skip their turn.</h4>
+				<ol>
+					<li>
+						For the next turn, you gain any passengers that other players pick up.
+					</li>
+					<li>
+						Each player chooses a passenger on the board to give to you.
+					</li>
+					<li>
+						On the next turn, you pick up all of the passengers adjacent to the square you land on.
+					</li>
+					<li>
+						-2 to your next two rolls.
+					</li>
+					<li>
+						You cannot drop off any passengers on your next turn.
+					</li>
+					<li>
+						-3 to your next roll.
+					</li>
+					<li>
+						Choose a player, they give you one of their passenger tokens.
+					</li>
+					<li>
+						Skip your next turn.
+					</li>
+					<li>
+						Immediately move your train two spaces in any direction, not dropping off passengers on the way.
+					</li>
+					<li>
+						+3 to your next roll.
+					</li>
+					<li>
+						Swap the positions of your train with someone else’s.
+					</li>
+					<li>
+						You immediately get another turn.
+					</li>
+					<li>
+						Give one of your passenger tokens to one player of your choice
+					</li>
+					<li>
+						Choose a player to prevent their next turn.
+					</li>
+					<li>
+						You do not pick up any passengers on the next turn.
+					</li>
+					<li>
+						Swap a passenger token with a player, then give a passenger token to a player
+					</li>
+					<li>
+						On your next turn, you can drop off passengers while passing squares
+					</li>
+					<li>
+						For the next three turns, you may add +1 or +2 to your dice roll.
+					</li>
+					<li>
+						Remove 2 passenger tokens and place them on any square on your board.
+					</li>
+					<li>
+						Immediately take 2 more turns
+					</li>
+				</ol>
+				<button onclick="display('rolls','rules')";>Click/Press A to display rules</button>
+			</div>
+		</div>	
+
+		<script>
+			createBoard();
+			generateHazards(5, 'hazards');
+			window.onkeydown = function(e){
+				if(String.fromCharCode(e.keyCode) == "D"){
+					display("rules","rolls");
+				}
+				if(String.fromCharCode(e.keyCode) == "A"){
+					display("rolls", "rules");
+				}
+				if(String.fromCharCode(e.keyCode) == "W"){
+					rollDice(20, 'rollNumber');
+				}
+				if(String.fromCharCode(e.keyCode) == "S"){
+					rollDice(6, 'rollNumber');
+				}
+			}
+			</script>
+	</body>
+</html>
