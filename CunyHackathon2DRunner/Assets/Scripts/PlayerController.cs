@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerController : PhysicsObject
 {
-    public float jumpTakeOffSpeed = 6;
-    public float maxSpeed = 6;
+    public float characterNumber;
 
+    private float jumpTakeOffSpeed = 5;
+    private float maxSpeed = 5;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
     void Awake()
-    {
+    { 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
@@ -19,18 +20,72 @@ public class PlayerController : PhysicsObject
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
-        move.x = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && grounded) //jump 
+        move.x = Input.GetAxis("Horizontal" + characterNumber);
+        if(characterNumber == 1)
         {
-            velocity.y = jumpTakeOffSpeed;
-
-        }
-        else if (Input.GetButtonUp("Jump")) //cancel jump
-        {
-            if(velocity.y > 0) //going up
+            if (Input.GetKeyDown("f"))
             {
-                velocity.y = velocity.y * .5f;  //reduce velocity by half
+                //use item
+            }
+
+            if (Input.GetKeyDown("g") && grounded) //jump 
+            {
+                velocity.y = jumpTakeOffSpeed;
+            }
+            else if (Input.GetKeyUp("g")) //cancel jump
+            {
+                if (velocity.y > 0) //going up
+                {
+                    velocity.y = velocity.y * .5f;  //reduce velocity by half
+                }
+            }
+            if (Input.GetKeyDown("h"))
+            {
+                //do shadowstep
+                if (Input.GetKey("w")){
+                    velocity.y = jumpTakeOffSpeed * 1.10f;
+                }
+                if (Input.GetKey("d"))
+                {
+                    velocity.x = maxSpeed * 10f;
+                    velocity.y = 4f;
+                }
+                if (Input.GetKey("a"))
+                {
+                    velocity.x = -(maxSpeed * 1.10f);
+                    velocity.y = 1f;
+                }
+            }
+        }
+
+        if(characterNumber == 2)
+        {
+            if (Input.GetKeyDown("1"))
+            {
+                //use item
+            }
+            if (Input.GetKeyDown("[2]") && grounded)
+            {
+                velocity.y = jumpTakeOffSpeed;
+            }
+            else if (Input.GetKeyUp("[2]"))
+            {
+                if (velocity.y > 0) //going up
+                {
+                    velocity.y = velocity.y * .5f;  //reduce velocity by half
+                }
+            }
+            if (Input.GetKeyDown("[3]"))
+            {
+                if (Input.GetKey("uparrow"))
+                {
+                    velocity.y = jumpTakeOffSpeed * 1.10f;
+                }
+                else if (Input.GetKey("rightArrow"))
+                {
+                    velocity.x = maxSpeed * 1.10f;
+                    velocity.y = 1f;
+                }
             }
         }
 
