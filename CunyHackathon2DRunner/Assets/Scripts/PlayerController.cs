@@ -23,10 +23,11 @@ public class PlayerController : PhysicsObject
         move.x = Input.GetAxis("Horizontal" + characterNumber);
         if(characterNumber == 1)
         {
-            if (Input.GetKeyDown("f"))
+            if (Input.GetKeyDown("space"))
             {
                 //use item
             }
+
 
             if (Input.GetKeyDown("g") && grounded) //jump 
             {
@@ -36,31 +37,16 @@ public class PlayerController : PhysicsObject
             {
                 if (velocity.y > 0) //going up
                 {
-                    velocity.y = velocity.y * .5f;  //reduce velocity by half
-                }
-            }
-            if (Input.GetKeyDown("h"))
-            {
-                //do shadowstep
-                if (Input.GetKey("w")){
-                    velocity.y = jumpTakeOffSpeed * 1.10f;
-                }
-                if (Input.GetKey("d"))
-                {
-                    velocity.x = maxSpeed * 10f;
-                    velocity.y = 4f;
-                }
-                if (Input.GetKey("a"))
-                {
-                    velocity.x = -(maxSpeed * 1.10f);
-                    velocity.y = 1f;
+                    velocity.y = velocity.y * .5f;  
                 }
             }
         }
 
+
+
         if(characterNumber == 2)
         {
-            if (Input.GetKeyDown("1"))
+            if (Input.GetKeyDown("0"))
             {
                 //use item
             }
@@ -75,18 +61,18 @@ public class PlayerController : PhysicsObject
                     velocity.y = velocity.y * .5f;  //reduce velocity by half
                 }
             }
-            if (Input.GetKeyDown("[3]"))
-            {
-                if (Input.GetKey("uparrow"))
-                {
-                    velocity.y = jumpTakeOffSpeed * 1.10f;
-                }
-                else if (Input.GetKey("rightArrow"))
-                {
-                    velocity.x = maxSpeed * 1.10f;
-                    velocity.y = 1f;
-                }
-            }
+            //if (Input.GetKeyDown("[3]"))
+            //{
+            //    if(Input.GetKey(KeyCode.UpArrow))
+            //    {
+            //        velocity.y = jumpTakeOffSpeed * 1.10f;
+            //    }
+            //    else if(Input.GetKey(KeyCode.RightArrow))
+            //    {
+            //        velocity.x = maxSpeed * 1.10f;
+            //        velocity.y = 1f;
+            //    }
+            //}
         }
 
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f)); //flip sprite
