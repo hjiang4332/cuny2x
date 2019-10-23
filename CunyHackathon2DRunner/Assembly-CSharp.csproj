@@ -63,8 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BetterAdjustableCamera.cs" />
-    <Compile Include="Assets\Scripts\PhysicsObject.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Dash.cs" />
     <Compile Include="Assets\Scripts\Dash2.cs" />
     <Compile Include="Assets\Scripts\Mainmenu.cs" />
