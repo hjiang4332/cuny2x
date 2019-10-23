@@ -25,7 +25,7 @@ public class BetterAdjustableCamera : MonoBehaviour
         float width = Mathf.Abs(player1.position.x - player2.position.x) / 2f;
         float height = Mathf.Abs(player1.position.y - player2.position.y) / 1.5f;
         
-        float camSizeX = Mathf.Max(width, minSizeX);
+        float camSizeX = Mathf.Max(width, minSizeX)*2f;
         GetComponent<Camera>().orthographicSize = Mathf.Max(height, camSizeX * Screen.height / Screen.width, minSizeY);
     }
     void Update()
