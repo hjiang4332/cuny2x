@@ -21,6 +21,12 @@ public class PlayerController : PhysicsObject
     private bool p1CanDash;
     private bool p2CanDash;
 
+    //better jumping
+    public float fallMultiplier = 2.5f;
+
+    //avoid slamming onto walls
+    private RaycastHit hit;
+
     void Awake()
     { 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,14 +42,18 @@ public class PlayerController : PhysicsObject
         Vector2 move = Vector2.zero;
         move.x = Input.GetAxis("Horizontal" + characterNumber);
 
-        if(characterNumber == 1)
+        //Vector3 forward = GameObject.Find("Player1").transform.TransformDirection(Vector3.up) * 10;
+        //Debug.DrawRay(GameObject.Find("Player1").transform.position, forward, Color.green);
+
+        if (characterNumber == 1)
         {
             //use items
             if (Input.GetKeyDown("space"))  //items
             {
                 //use item
             }
-            
+
+
             //reset dash ability 
             if (grounded)
             {
@@ -53,7 +63,8 @@ public class PlayerController : PhysicsObject
             //player jump
             if (Input.GetKeyDown("g") && grounded)
             {
-                velocity.y = jumpTakeOffSpeed;
+                velocity.y = jumpTakeOffSpeed; 
+                //velocity.y += jumpTakeOffSpeed * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
             }
             else if (Input.GetKeyUp("g")) //cancel jump
             {
@@ -94,6 +105,15 @@ public class PlayerController : PhysicsObject
                     {
                         p1CanDash = false;
                         rb.velocity = Vector2.up * (2 * dashSpeed); //up
+                        Ray upRay = new Ray(transform.position, Vector3.up);
+                        /*if(Physics.Raycast(upRay, 2*dashSpeed)<upRay)
+                        {
+
+                        }
+                        else
+                        {
+                            rb.velocity = Vector2.up * (2 * dashSpeed); //up
+                        }*/
                     }
                     else if (dashDirection == 2 && p1CanDash)
                     {
