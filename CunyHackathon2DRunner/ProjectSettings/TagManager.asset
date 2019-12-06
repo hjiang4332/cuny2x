@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - protest1
+  - protest2
+  - protest3
+  - protest4
+  - pr1
+  - pr2
   layers:
   - Default
   - TransparentFX
