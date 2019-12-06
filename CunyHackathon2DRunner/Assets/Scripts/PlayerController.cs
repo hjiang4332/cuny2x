@@ -22,10 +22,18 @@ public class PlayerController : PhysicsObject
     private bool p2CanDash;
 
     //better jumping
-    public float fallMultiplier = 2.5f;
+    //public float fallMultiplier = 2.5f;
 
     //avoid slamming onto walls
     private RaycastHit hit;
+
+    //tweets
+    private GameObject protest1;
+    private GameObject protest2;
+    private GameObject protest3;
+    private GameObject protest4;
+    private GameObject pr1;
+    private GameObject pr2;
 
     void Awake()
     { 
@@ -35,7 +43,27 @@ public class PlayerController : PhysicsObject
         //dash
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
+
+        //tweets instantiation
+        protest1 = GameObject.Find("protest1");
+        //  protest2 = GameObject.Find("protest2");
+        // protest3 = GameObject.Find("protest3");
+        // protest4 = GameObject.Find("protest4");
+        pr1 = GameObject.Find("pr1");
+        //pr2 = GameObject.Find("pr2");
     }
+
+    void Start()
+    {
+        protest1.gameObject.SetActive(false);
+        //protest2.gameObject.SetActive(false);
+        //protest3.gameObject.SetActive(false);
+        //protest4.gameObject.SetActive(false);
+        //pr1.gameObject.SetActive(false);
+        //pr2.gameObject.SetActive(false);
+    }
+
+
 
     protected override void ComputeVelocity()
     {
@@ -105,7 +133,7 @@ public class PlayerController : PhysicsObject
                     {
                         p1CanDash = false;
                         rb.velocity = Vector2.up * (2 * dashSpeed); //up
-                        Ray upRay = new Ray(transform.position, Vector3.up);
+                        //Ray upRay = new Ray(transform.position, Vector3.up);
                         /*if(Physics.Raycast(upRay, 2*dashSpeed)<upRay)
                         {
 
@@ -211,5 +239,14 @@ public class PlayerController : PhysicsObject
         animator.SetFloat("velocityX", Mathf.Abs(velocity.x / maxSpeed));
 
         targetVelocity = move * maxSpeed;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Triggered");
+        if (collision.CompareTag("protest1"))
+        {
+            Debug.Log("protest1 triggered");
+            protest1.gameObject.SetActive(true);
+        }
     }
 }

@@ -21,7 +21,6 @@ public class PhysicsObject : MonoBehaviour
     //store incoming input from outside class
     protected Vector2 targetVelocity;
 
-
     private void OnEnable()
     {
         rb2d = GetComponent<Rigidbody2D>();
