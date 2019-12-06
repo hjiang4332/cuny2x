@@ -134,18 +134,6 @@ public class PlayerController : PhysicsObject
                     velocity.y = velocity.y * .5f;  //reduce velocity by half
                 }
             }
-            //if (Input.GetKeyDown("[3]"))
-            //{
-            //    if(Input.GetKey(KeyCode.UpArrow))
-            //    {
-            //        velocity.y = jumpTakeOffSpeed * 1.10f;
-            //    }
-            //    else if(Input.GetKey(KeyCode.RightArrow))
-            //    {
-            //        velocity.x = maxSpeed * 1.10f;
-            //        velocity.y = 1f;
-            //    }
-            //}
 
             if (dashDirection == 0)  //player no dash
             {
