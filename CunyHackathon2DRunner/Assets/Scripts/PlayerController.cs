@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : PhysicsObject
 {
-    public float characterNumber;
-
     //jumping and animations
     private float jumpTakeOffSpeed = 5;
     private float maxSpeed = 5;
@@ -18,8 +17,7 @@ public class PlayerController : PhysicsObject
     private float dashTime;
     private float startDashTime = .1f;
     private int dashDirection;
-    private bool p1CanDash;
-    private bool p2CanDash;
+    private bool canDash;
 
     //better jumping
     //public float fallMultiplier = 2.5f;
@@ -55,7 +53,7 @@ public class PlayerController : PhysicsObject
 
     void Start()
     {
-        protest1.gameObject.SetActive(false);
+        //protest1.gameObject.SetActive(false);
         //protest2.gameObject.SetActive(false);
         //protest3.gameObject.SetActive(false);
         //protest4.gameObject.SetActive(false);
@@ -68,162 +66,88 @@ public class PlayerController : PhysicsObject
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
-        move.x = Input.GetAxis("Horizontal" + characterNumber);
+        move.x = Input.GetAxis("Horizontal1");
 
         //Vector3 forward = GameObject.Find("Player1").transform.TransformDirection(Vector3.up) * 10;
         //Debug.DrawRay(GameObject.Find("Player1").transform.position, forward, Color.green);
 
-        if (characterNumber == 1)
+        //use items
+        if (Input.GetKeyDown("space"))  //items
         {
-            //use items
-            if (Input.GetKeyDown("space"))  //items
-            {
-                //use item
-            }
-
-
-            //reset dash ability 
-            if (grounded)
-            {
-                p1CanDash = true;
-            }
-
-            //player jump
-            if (Input.GetKeyDown("g") && grounded)
-            {
-                velocity.y = jumpTakeOffSpeed; 
-                //velocity.y += jumpTakeOffSpeed * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-            }
-            else if (Input.GetKeyUp("g")) //cancel jump
-            {
-                if (velocity.y > 0) //going up
-                {
-                    velocity.y = velocity.y * .5f;
-                }
-            }
-
-            //dash mechanics
-            if (dashDirection == 0)  //player not dashing
-            {
-                if (Input.GetKeyDown("t"))    //dashDirection up
-                {
-                    dashDirection = 1;
-                }
-                else if (Input.GetKeyDown("f"))  //dashDirection up left
-                {
-                    dashDirection = 2;
-                }
-                else if (Input.GetKeyDown("h")) //dashDirection up right
-                {
-                    dashDirection = 3;
-                }
-            }
-            else
-            {
-                if (dashTime <= 0)
-                {
-                    dashDirection = 0;
-                    dashTime = startDashTime;
-                    rb.velocity = Vector2.zero;
-                }
-                else
-                {
-                    dashTime -= Time.deltaTime;
-                    if (dashDirection == 1 && p1CanDash)
-                    {
-                        p1CanDash = false;
-                        rb.velocity = Vector2.up * (2 * dashSpeed); //up
-                        //Ray upRay = new Ray(transform.position, Vector3.up);
-                        /*if(Physics.Raycast(upRay, 2*dashSpeed)<upRay)
-                        {
-
-                        }
-                        else
-                        {
-                            rb.velocity = Vector2.up * (2 * dashSpeed); //up
-                        }*/
-                    }
-                    else if (dashDirection == 2 && p1CanDash)
-                    {
-                        p1CanDash = false;
-                        rb.velocity = new Vector2(-1, 1) * dashSpeed;  //up left
-                    }
-                    else if (dashDirection == 3 && p1CanDash)
-                    {
-                        p1CanDash = false;
-                        rb.velocity = Vector2.one * dashSpeed;    //up right
-                    }
-                }
-            }
+            //use item
         }
 
 
-        if(characterNumber == 2)
+        //reset dash ability 
+        if (grounded)
         {
-            if (Input.GetKeyDown("0"))
-            {
-                //use item
-            }
+            canDash = true;
+        }
 
-            if (grounded)
+        //player jump
+        if (Input.GetKeyDown("g") && grounded)
+        {
+            velocity.y = jumpTakeOffSpeed; 
+            //velocity.y += jumpTakeOffSpeed * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (Input.GetKeyUp("g")) //cancel jump
+        {
+            if (velocity.y > 0) //going up
             {
-                p2CanDash = true;
+                velocity.y = velocity.y * .5f;
             }
+        }
 
-            if ((Input.GetKeyDown("[2]") || Input.GetKeyDown("k")) && grounded)
+        //dash mechanics
+        if (dashDirection == 0)  //player not dashing
+        {
+            if (Input.GetKeyDown("t"))    //dashDirection up
             {
-                velocity.y = jumpTakeOffSpeed;
-                p2CanDash = true;
+                dashDirection = 1;
             }
-            else if (Input.GetKeyUp("[2]") || Input.GetKeyUp("k"))
+            else if (Input.GetKeyDown("f"))  //dashDirection up left
             {
-                if (velocity.y > 0) //going up
-                {
-                    velocity.y = velocity.y * .5f;  //reduce velocity by half
-                }
+                dashDirection = 2;
             }
-
-            if (dashDirection == 0)  //player no dash
+            else if (Input.GetKeyDown("h")) //dashDirection up right
             {
-                if ((Input.GetKeyDown("[5]") || Input.GetKeyDown("i")) && p2CanDash)    //up
-                {
-                    dashDirection = 1;
-                }
-                else if ((Input.GetKeyDown("[1]") || Input.GetKeyDown("j")) && p2CanDash)  //up left
-                {
-                    dashDirection = 2;
-                }
-                else if ((Input.GetKeyDown("[3]") || Input.GetKeyDown("l")) && p2CanDash) //up right
-                {
-                    dashDirection = 3;
-                }
+                dashDirection = 3;
+            }
+        }
+        else
+        {
+            if (dashTime <= 0)
+            {
+                dashDirection = 0;
+                dashTime = startDashTime;
+                rb.velocity = Vector2.zero;
             }
             else
             {
-                if (dashTime <= 0)
+                dashTime -= Time.deltaTime;
+                if (dashDirection == 1 && canDash)
                 {
-                    dashDirection = 0;
-                    dashTime = startDashTime;
-                    rb.velocity = Vector2.zero;
-                }
-                else
-                {
-                    dashTime -= Time.deltaTime;
-                    if (dashDirection == 1 && p2CanDash)
+                    canDash = false;
+                    rb.velocity = Vector2.up * (2 * dashSpeed); //up
+                    //Ray upRay = new Ray(transform.position, Vector3.up);
+                    /*if(Physics.Raycast(upRay, 2*dashSpeed)<upRay)
                     {
-                        p2CanDash = false;
+
+                    }
+                    else
+                    {
                         rb.velocity = Vector2.up * (2 * dashSpeed); //up
-                    }
-                    else if (dashDirection == 2 && p2CanDash)
-                    {
-                        p2CanDash = false;
-                        rb.velocity = new Vector2(-1, 1) * dashSpeed;  //up left
-                    }
-                    else if (dashDirection == 3 && p2CanDash)
-                    {
-                        p2CanDash = false;
-                        rb.velocity = Vector2.one * dashSpeed;    //up right
-                    }
+                    }*/
+                }
+                else if (dashDirection == 2 && canDash)
+                {
+                    canDash = false;
+                    rb.velocity = new Vector2(-1, 1) * dashSpeed;  //up left
+                }
+                else if (dashDirection == 3 && canDash)
+                {
+                    canDash = false;
+                    rb.velocity = Vector2.one * dashSpeed;    //up right
                 }
             }
         }
@@ -239,14 +163,14 @@ public class PlayerController : PhysicsObject
         animator.SetFloat("velocityX", Mathf.Abs(velocity.x / maxSpeed));
 
         targetVelocity = move * maxSpeed;
+
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Triggered");
-        if (collision.CompareTag("protest1"))
+        if (collision.CompareTag("Win"))
         {
-            Debug.Log("protest1 triggered");
-            protest1.gameObject.SetActive(true);
+            SceneManager.LoadScene("TitleScreen");
         }
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - protest4
   - pr1
   - pr2
+  - Win
   layers:
   - Default
   - TransparentFX

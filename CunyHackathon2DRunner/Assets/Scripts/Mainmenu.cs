@@ -9,7 +9,6 @@ public class Mainmenu : MonoBehaviour
 	{
         SceneManager.LoadScene("MainMap");
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
     }
 
     public void QuitGame()
