@@ -170,7 +170,8 @@ public class PlayerController : PhysicsObject
     {
         if (collision.CompareTag("Win"))
         {
-            SceneManager.LoadScene("TitleScreen");
+            SceneManager.LoadScene("ProtestWin");
         }
     }
+
 }

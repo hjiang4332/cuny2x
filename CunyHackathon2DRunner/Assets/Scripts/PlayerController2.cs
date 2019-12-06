@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController2 : PhysicsObject
 {
@@ -148,4 +149,13 @@ public class PlayerController2 : PhysicsObject
 
         targetVelocity = move * maxSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Win"))
+        {
+            SceneManager.LoadScene("PrWin");
+        }
+    }
+
 }
