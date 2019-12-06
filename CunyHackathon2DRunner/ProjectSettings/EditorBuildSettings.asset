@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 89d862763feae8641856f1427318f224
   - enabled: 1
-    path: Assets/Scenes/MainMapOld.unity
-    guid: 0462c18d23944df45ab079878e284dd8
+    path: Assets/Scenes/MainMap.unity
+    guid: 3307652780f7aca47a80f37a28710633
   m_configObjects: {}
