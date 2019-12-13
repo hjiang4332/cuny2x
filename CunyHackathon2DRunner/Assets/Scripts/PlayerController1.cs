@@ -18,8 +18,7 @@ public class PlayerController1 : PhysicsObject
     private float dashTime;
     private float startDashTime = .1f;
     private int dashDirection;
-    private bool p1CanDash;
-    private bool p2CanDash;
+    //private bool p1CanDash;
 
     void Awake()
     { 
@@ -38,32 +37,33 @@ public class PlayerController1 : PhysicsObject
 
         if(characterNumber == 1)
         {
+            //if (grounded)
+            //{
+            //    p1CanDash = true;
+            //}
+
             //player jump
             if (Input.GetKeyDown("g") && grounded)
             {
                 velocity.y = jumpTakeOffSpeed;
             }
 
-            if (Input.GetKeyDown("g") && !grounded) 
+            if (dashDirection == 0)  //player not dashing
             {
-                if (dashDirection == 0)  //player not dashing
+                if (Input.GetKeyDown("w"))    //dashDirection up
                 {
-                    if (Input.GetKeyDown("w"))    //dashDirection up
-                    {
-                        dashDirection = 1;
-                    }
-                    else if (Input.GetKeyDown("a"))  //dashDirection up left
-                    {
-                        dashDirection = 2;
-                    }
-                    else if (Input.GetKeyDown("d")) //dashDirection up right
-                    {
-                        dashDirection = 3;
-                    }
+                    dashDirection = 1;
+                }
+                else if (Input.GetKeyDown("a"))  //dashDirection up left
+                {
+                    dashDirection = 2;
+                }
+                else if (Input.GetKeyDown("d")) //dashDirection up right
+                {
+                    dashDirection = 3;
                 }
             }
-
-            if(dashDirection != 0)
+            else if (dashDirection != 0)
             {
                 if (dashTime <= 0)
                 {
