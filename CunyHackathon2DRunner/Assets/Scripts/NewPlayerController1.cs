@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class NewPlayerController1 : PhysicsObject
 {
     //jumping and animations
-    private float jumpTakeOffSpeed = 7;
-    private float maxSpeed = 7;
+    private float jumpTakeOffSpeed = 10;
+    private float maxSpeed = 6;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     //private bool canDoubleJump;
@@ -43,7 +43,6 @@ public class NewPlayerController1 : PhysicsObject
         protest2 = GameObject.Find("protest2");
         pr1 = GameObject.Find("pr1");
         pr2 = GameObject.Find("pr2");
-
         protest1.gameObject.SetActive(false);
         protest2.gameObject.SetActive(false);
         pr1.gameObject.SetActive(false);
@@ -54,17 +53,6 @@ public class NewPlayerController1 : PhysicsObject
     {
         Vector2 move = Vector2.zero;
         move.x = Input.GetAxis("Horizontal1");
-
-        if (move.x != 0)
-        {
-            if (soilWalkIsPlaying == false)
-            {
-                soilWalkIsPlaying = true;
-                soilWalk.Play();
-                StartCoroutine(AudioWait());
-
-            }
-        }
 
         //use items
         if (Input.GetKeyDown("s"))  //items
@@ -78,6 +66,14 @@ public class NewPlayerController1 : PhysicsObject
             jumpSound.Play();
             velocity.y = jumpTakeOffSpeed;
             //canDoubleJump = true;
+
+            if (Input.GetKeyDown("w") && !grounded)
+            {
+                Debug.Log("doublejump");
+                jumpSound.Play();
+                velocity.y = jumpTakeOffSpeed;
+                //canDoubleJump == false;
+            }
         }
         else if (Input.GetKeyUp("w")) //cancel jump
         {
@@ -86,13 +82,18 @@ public class NewPlayerController1 : PhysicsObject
                 velocity.y = velocity.y * .5f;
             }
         }
-        /*if(Input.GetKeyDown("w") && canDoubleJump == true)
-        {
-            canDoubleJump = false;
-            jumpSound.Play();
-            velocity.y = jumpTakeOffSpeed;
-        }*/
 
+        //play walking sound
+        if (move.x != 0 && grounded)
+        {
+            if (soilWalkIsPlaying == false)
+            {
+                soilWalkIsPlaying = true;
+                soilWalk.Play();
+                StartCoroutine(AudioWait());
+
+            }
+        }
 
         //sprite flipping
         bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f)); //flip sprite
@@ -103,9 +104,7 @@ public class NewPlayerController1 : PhysicsObject
 
         animator.SetBool("grounded", grounded);
         animator.SetFloat("velocityX", Mathf.Abs(velocity.x / maxSpeed));
-
         targetVelocity = move * maxSpeed;
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
