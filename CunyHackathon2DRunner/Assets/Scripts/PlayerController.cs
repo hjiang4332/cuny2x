@@ -35,8 +35,6 @@ public class PlayerController : PhysicsObject
     //tweets
     //private GameObject protest1;
     //private GameObject protest2;
-    //private GameObject protest3;
-    //private GameObject protest4;
     //private GameObject pr1;
     //private GameObject pr2;
 
@@ -51,9 +49,7 @@ public class PlayerController : PhysicsObject
 
         //tweets instantiation
         //protest1 = GameObject.Find("protest1");
-        //  protest2 = GameObject.Find("protest2");
-        // protest3 = GameObject.Find("protest3");
-        // protest4 = GameObject.Find("protest4");
+        //protest2 = GameObject.Find("protest2");
         //pr1 = GameObject.Find("pr1");
         //pr2 = GameObject.Find("pr2");
 
