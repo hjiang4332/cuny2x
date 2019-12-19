@@ -144,6 +144,14 @@ public class NewPlayerController3 : PhysicsObject
 
         targetVelocity = move * maxSpeed;
 
+        if (Input.GetKeyDown("t"))
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
+        if (Input.GetKeyDown("y"))
+        {
+            SceneManager.LoadScene("MainMap");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
