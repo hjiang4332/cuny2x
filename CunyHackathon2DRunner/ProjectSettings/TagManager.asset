@@ -7,15 +7,12 @@ TagManager:
   - Wall
   - protest1
   - protest2
-  - protest3
-  - protest4
   - pr1
   - pr2
   - Win
-  - player2
-  - player1
   - tweetTrigger1
   - tweetTrigger2
+  - item
   layers:
   - Default
   - TransparentFX

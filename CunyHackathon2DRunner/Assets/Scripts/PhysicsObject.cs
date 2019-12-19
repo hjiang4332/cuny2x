@@ -19,6 +19,12 @@ public class PhysicsObject : MonoBehaviour
     protected Vector2 groundNormal;
     protected Vector2 targetVelocity; // store input from outside of class
 
+    //tweets
+    protected GameObject protest1;
+    protected GameObject protest2;
+    protected GameObject pr1;
+    protected GameObject pr2;
+
     void OnEnable()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -29,6 +35,17 @@ public class PhysicsObject : MonoBehaviour
         contactFilter.useTriggers = false; //dont use collision for triggers
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+
+        //tweets instantiation
+        protest1 = GameObject.Find("protest1");
+        protest2 = GameObject.Find("protest2");
+        pr1 = GameObject.Find("pr1");
+        pr2 = GameObject.Find("pr2");
+
+        protest1.gameObject.GetComponent<Renderer>().enabled = false;
+        protest2.gameObject.GetComponent<Renderer>().enabled = false;
+        pr1.gameObject.GetComponent<Renderer>().enabled = false;
+        pr2.gameObject.GetComponent<Renderer>().enabled = false;
     }
 
     private void Update()

@@ -19,12 +19,6 @@ public class NewPlayerController2 : PhysicsObject
     private GameObject tweet;
     AudioSource tweetSound;
 
-    //tweets
-    private GameObject protest1;
-    private GameObject protest2;
-    private GameObject pr1;
-    private GameObject pr2;
-
     void Awake()
     { 
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,14 +30,6 @@ public class NewPlayerController2 : PhysicsObject
         jumpSound = jump.GetComponent<AudioSource>();
         tweet = GameObject.Find("TweetSound");
         tweetSound = tweet.GetComponent<AudioSource>();
-
-        //tweets instantiation
-        protest1 = GameObject.Find("protest1");
-        protest2 = GameObject.Find("protest2");
-        pr1 = GameObject.Find("pr1");
-        pr2 = GameObject.Find("pr2");
-
-     
     }
 
     protected override void ComputeVelocity()
